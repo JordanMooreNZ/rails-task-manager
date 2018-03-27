@@ -1,0 +1,18 @@
+<!-- app/views/restaurants/index.html.erb -->
+<h1>My Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+    <% if task.completed %>
+      <i class='far fa-check-square'></i>
+    <% else %>
+      <i class='far fa-square'></i>
+    <% end %>
+    <span><h2><%= link_to task.title, task_path(task) %> · </h2></span>
+    <%= link_to "<i class='far fa-trash-alt'>".html_safe, task_path(task), method: :delete %></i>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to " + Add a new task", new_task_path %></p>
+
